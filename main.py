@@ -19,8 +19,8 @@ async def get_credit():
     return {"message": credit_msg}
 
 @app.get("/edit")
-async def edit_credit_get(msg: str = Query(...), input_password: str = Query(...)):
-    if input_password != password:
+async def edit_credit_get(msg: str = Query(...), password: str = Query(...)):
+    if password != password:
         return {"error": "Wrong password"}
     global credit_msg
     credit_msg = msg
